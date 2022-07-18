@@ -7,6 +7,12 @@ void main(List<String> args) {
   // 调用函数参数方法
   fun2(fun1);
   fun2(fun);
+  // 调用list.map
+  map();
+  // 调用闭包返回的函数，2次
+  var func = fn();
+  func();
+  func();
 }
 
 // 1. 可选参数 & 默认参数
@@ -18,7 +24,7 @@ void printUser(String username, [int? age, String sex = "male"]) {
   }
 }
 
-// 2. 命名参数的方法ss
+// 2. 命名参数的方法
 void printUserInfo(String name, {int age = 0, String sex = 'male'}) {
   print("name: $name, age: $age, sex: $sex");
 }
@@ -36,3 +42,25 @@ fun2(fun) {
 var fun = () {
   print('I am nameless fun!');
 };
+
+// 5. List常用函数
+void map() {
+  List l = [1, 2, 3, 4, 5];
+  var list = l.map((e) => e > 2 ? e * 2 : e);
+  print(list);
+}
+
+// 6. 闭包，让局部变量常驻内存
+fn() {
+  var a = 100;
+  return () {
+    a++;
+    print(a);
+  };
+}
+
+// 7. 定义一个异步方法
+mockData() async {
+  // 允许使用await等待请求完成
+  await fn();
+}

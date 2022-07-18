@@ -24,9 +24,7 @@ void main(List<String> args) {
   List l = str.split('-'); // 按-组装成List
   print(l);
 
-  list.forEach((element) {
-    print(element);
-  });
+  list.forEach((element) => {print(element)});
 
   // 3. 映射Map
   Map person = {
